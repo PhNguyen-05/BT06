@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout-admin}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+</head>
+
+<body>
+<section layout:fragment="content">
+    <h1 class="text-center">Trang cá nhân</h1>
+    <h2 class="text-center">Trần Hồ Phương Nguyên</h2>
+    <hr/>
+
+    <ul class="list-group">
+        <!-- Lặp qua danh sách profile -->
+        <li class="list-group-item" th:each="info : ${profile}">
+            <strong th:text="${info.key}"></strong>: 
+            <span th:text="${info.value}"></span>
+        </li>
+    </ul>
+</section>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout-admin}">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Trang chủ</title>
+</head>
+
+<body>
+<section layout:fragment="content">
+    <div class="text-center mt-5">
+        <h1>Chào mừng đến với Trang Quản Trị</h1>
+        <p>Đây là trang chủ của hệ thống CRUD Category</p>
+        <a th:href="@{/admin/categories/searchpaging}" class="btn btn-primary">
+            <i class="fa fa-list"></i> Quản lý Category
+        </a>
+    </div>
+</section>
+</body>
+</html>

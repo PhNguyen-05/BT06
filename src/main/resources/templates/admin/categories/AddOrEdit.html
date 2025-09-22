@@ -1,0 +1,58 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/Layout-admin.html}">
+
+<section class="row" layout:fragment="content">
+    <div class="col mt-4">
+        <div class="card">
+            <div class="card-header">
+                <h4 th:text="${category.isEdit} ? 'Edit Category' : 'Add New Category'"></h4>
+            </div>
+
+            <div class="card-body">
+                <!-- Form thêm/sửa -->
+                <form th:action="@{/admin/categories/saveOrUpdate}" 
+                      method="post" th:object="${category}">
+
+                    <!-- Hiện lỗi validate (phải nằm trong form) -->
+                    <div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
+                        <ul>
+                            <li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
+                        </ul>
+                    </div>
+
+                    <!-- ID ẩn (chỉ khi edit) -->
+                    <input type="hidden" th:if="${category.isEdit}" th:field="*{id}" />
+
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Category Name</label>
+                        <input type="text" id="name" class="form-control" th:field="*{name}" placeholder="Nhập tên category"/>
+                        <div class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="images" class="form-label">Image URL</label>
+                        <input type="text" id="images" class="form-control" th:field="*{images}" placeholder="Nhập đường dẫn hình ảnh"/>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="status" class="form-label">Status</label>
+                        <select id="status" class="form-select" th:field="*{status}">
+                            <option value="1">Active</option>
+                            <option value="0">Inactive</option>
+                        </select>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <a th:href="@{/admin/categories/searchpaging}" class="btn btn-secondary">Back</a>
+                        <button type="submit" class="btn btn-primary">
+                            <span th:text="${category.isEdit} ? 'Update' : 'Save'"></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+</html>

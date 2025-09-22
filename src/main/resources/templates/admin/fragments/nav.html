@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <!-- Logo / tiêu đề -->
+        <a class="navbar-brand" th:href="@{/admin/dashboard}">
+            <i class="fa-solid fa-screwdriver-wrench"></i> Admin Panel
+        </a>
+
+        <!-- Nút toggle khi thu nhỏ màn hình -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adminNavbar"
+                aria-controls="adminNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Menu -->
+        <div class="collapse navbar-collapse" id="adminNavbar">
+            <ul class="navbar-nav ms-auto">
+                <!-- Dashboard -->
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/dashboard}">
+                        <i class="fa fa-home"></i> Dashboard
+                    </a>
+                </li>
+
+                <!-- Categories -->
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/categories/searchpaging}">
+                        <i class="fa fa-list"></i> Categories
+                    </a>
+                </li>
+
+                <!-- Users -->
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/users}">
+                        <i class="fa fa-users"></i> Users
+                    </a>
+                </li>
+
+                <!-- Videos -->
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/videos}">
+                        <i class="fa fa-video"></i> Videos
+                    </a>
+                </li>
+
+                <!-- Profile -->
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/profile}">
+                        <i class="fa fa-user"></i> Profile
+                    </a>
+                </li>
+
+                <!-- Đa ngôn ngữ -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        🌐 Language
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="?lang=en">English</a></li>
+                        <li><a class="dropdown-item" href="?lang=vi">Tiếng Việt</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+</body>
+</html>
